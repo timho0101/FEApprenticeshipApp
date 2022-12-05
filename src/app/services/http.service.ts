@@ -2,6 +2,19 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+interface User {
+  occupations: [],
+  states: [] 
+}
+
+interface UserSubmitForm {
+  name: '',
+  email: '',
+  password: '',
+  occupation: '',
+  state: ''
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,12 +24,12 @@ export class HttpServices {
 
   constructor(private http: HttpClient) { }
 
-  public getForm(): Observable<any> {
-    return this.http.get<any>(this.url);
+  public getForm(): Observable<User> {
+    return this.http.get<User>(this.url);
   }
 
-  public submitForm(data:any): Observable<any> {
+  public submitForm(data:UserSubmitForm): Observable<User> {
     console.log(data)
-    return this.http.post<any>(this.url, data);
+    return this.http.post<User>(this.url, data);
   }
 }

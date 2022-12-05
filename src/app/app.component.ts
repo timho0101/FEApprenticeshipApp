@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import { HttpServices } from './services/http.service';
-
+interface State {
+  name: '',
+  abbreviation: ''
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -28,7 +31,7 @@ export class AppComponent {
     this.httpService.getForm().subscribe(params => {
       this.occupations = params.occupations
 
-      params.states.map((el:any )=> {
+      params.states.map((el:State)=> {
         this.stateName.push(el.name)
         this.stateAbbreviation.push(el.abbreviation)
       })
@@ -37,13 +40,6 @@ export class AppComponent {
   }
 
   public onSubmit() {
-    var submitForm = {
-      name: this.profileForm.value.fullname,
-      email: this.profileForm.value.email,
-      password: this.profileForm.value.password,
-      occupation: this.profileForm.value.occupation,
-      state: this.profileForm.value.state
-    }
     this.httpService.submitForm(this.profileForm.value).subscribe()
   }
 }
