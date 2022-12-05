@@ -8,16 +8,22 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class AppComponent {
   public hide = true;
+  public profileForm: FormGroup;
 
-  profileForm = new FormGroup({
-    fullName: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    occupation: new FormControl(''),
-    state: new FormControl('')
-  });
+  constructor() {
+    this.profileForm = new FormGroup({
+      fullname: new FormControl(''),
+      email: new FormControl(''),
+      password: new FormControl(''),
+      occupation: new FormControl(''),
+      state: new FormControl('')
+    });
+  }
+
+  ngOnInit(): void {
+  }
 
   public onSubmit() {
-
+    console.log(this.profileForm.value)
   }
 }
