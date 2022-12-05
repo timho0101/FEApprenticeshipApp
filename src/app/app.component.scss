@@ -1,0 +1,52 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+  width: 100vw;
+
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+
+  .container{
+    width: 37.5rem; // 600px/16 = 37.5rem 
+    height: 40.265rem; // 650px/16 = 40.265rem
+
+    background-color: white;
+    border-radius: 1rem; // 16px
+    z-index: 1;
+
+    .formContainer{
+      padding: 5rem;
+      
+      .form{
+        display: flex;
+        flex-flow: column nowrap;
+      }
+    }
+  }
+}
+
+h1{
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 0 #888888;
+  letter-spacing: 2px;
+}
+
+// button{
+//   height: 2.8rem;
+//   background-color: black;
+//   color: white;
+//   border: 2px solid black;
+//   border-radius: 5px;
+// }
+
+// button:hover {
+//   background-color: white;
+//   color: black;
+//   filter: drop-shadow(0 0 2px black);
+
+//   cursor: pointer;
+// }

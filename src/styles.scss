@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+
+html, body, h1, h2, h3, h4, h5, h6, a, p, span, em, small, strong, sub, sup, mark, del, ins, strike, abbr, dfn, blockquote, q, cite, code, pre, ol, ul, li, dl, dt, dd, div, section, article, main, aside, nav, header, hgroup, footer, img, figure, figcaption, address, time, audio, video, canvas, iframe, details, summary, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+h1,h2,h3,h4,h5,h6,p,table,button {
+  font-family: QuickSand, sans-serif !important;
+}
+
+::before, ::after {
+  box-sizing: inherit;
+}
