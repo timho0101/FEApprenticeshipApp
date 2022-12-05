@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+import { HttpServices } from './services/http.service';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +8,15 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public hide = true;
+  public hide: boolean = true;
   public profileForm: FormGroup;
+  public occupations: string[] = [];
+  public stateName:string[] = [];
+  public stateAbbreviation: string[] = [];
 
-  constructor() {
+  constructor(private httpService: HttpServices) {
     this.profileForm = new FormGroup({
-      fullname: new FormControl(''),
+      name: new FormControl(''),
       email: new FormControl(''),
       password: new FormControl(''),
       occupation: new FormControl(''),
@@ -21,9 +25,25 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
+    this.httpService.getForm().subscribe(params => {
+      this.occupations = params.occupations
+
+      params.states.map((el:any )=> {
+        this.stateName.push(el.name)
+        this.stateAbbreviation.push(el.abbreviation)
+      })
+      console.log(params)
+    })
   }
 
   public onSubmit() {
-    console.log(this.profileForm.value)
+    var submitForm = {
+      name: this.profileForm.value.fullname,
+      email: this.profileForm.value.email,
+      password: this.profileForm.value.password,
+      occupation: this.profileForm.value.occupation,
+      state: this.profileForm.value.state
+    }
+    this.httpService.submitForm(this.profileForm.value).subscribe()
   }
 }
