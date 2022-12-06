@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
 interface User {
   occupations: [],
   states: [] 
 }
+
 interface UserSubmitForm {
   name: '',
   email: '',
@@ -14,7 +16,7 @@ interface UserSubmitForm {
 }
 
 // Service is one of key feature of Angular, allow developer to create separate directive dependency which then can be inject into any component within the app.
-// providedIn: root allow this service to be inject in any component at root level.
+// providedIn: root allow this service to be inject in any components at root level.
 @Injectable({
   providedIn: 'root'
 })
