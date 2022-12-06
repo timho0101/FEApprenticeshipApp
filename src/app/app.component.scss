@@ -1,3 +1,26 @@
+// media query, mobile app responsive design if required
+
+// refactoring using @mixin
+@mixin FontWeightAndSize{
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+// main color
+$color-white: white;
+$color-black: black;
+$color-light-black: rgba(0, 0, 0, 0.4);
+
+// rem is by definition units dictate an element's font size relative to the size of the root element
+// best pratice for responsive web design
+// 1rem = 16px
+$s-size: 1rem;
+$sm-size: 2rem;
+$m-size: 3rem;
+$ml-size: 5rem;
+$l-size: 10rem;
+$xl-size: 20rem;
+
 .wrapper {
   display: flex;
   align-items: center;
@@ -6,26 +29,26 @@
   height: 100vh;
   width: 100vw;
 
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: $color-light-black;
   z-index: 0;
 
   .container{
-    width: 37.5rem; // 600px/16 = 37.5rem 
-    height: 40.265rem; // 650px/16 = 40.265rem
+    width: $xl-size +  $l-size + $ml-size + $sm-size+ .5rem; // 600px/16 = 37.5rem 
+    height: $xl-size*2 + .265rem; // 650px/16 = 40.265rem
 
-    background-color: white;
-    border-radius: 1rem; // 16px
+    background-color: $color-white;
+    border-radius: $s-size; // 16px
     z-index: 1;
 
     .formContainer{
-      padding: 5rem;
+      padding: $ml-size; // 80px
       
-      h1{
-        font-size: 2rem;
+      .title{
+        font-size: $sm-size; // 32px
         font-weight: bold;
-        text-shadow: 2px 0 black;
+        text-shadow: 2px 0 $color-black;
         letter-spacing: 2px;
-        margin-bottom: 2rem;
+        margin-bottom: $sm-size; // 32px
       }
 
       form{
@@ -34,22 +57,23 @@
         
         .button{
           width: 35%;
-          height: 2.8rem;
-          background-color: black;
-          color: white;
-          border: 2px solid black;
+          height: $sm-size + .8rem; //44.8px
+          background-color: $color-black;
+          color: $color-white;
+          border: 2px solid $color-black;
           border-radius: 5px;
-          font-size: 1.1rem;
-          text-shadow: 1px 0 white;
-          margin-top: 1rem;
+          text-shadow: 1px 0 $color-white;
+          margin-top: $s-size; // 16px
+          @include FontWeightAndSize
         }
         
         .button:hover {
-          background-color: white;
-          color: black;
-          text-shadow: 1px 0 black;
-          filter: drop-shadow(0 0 2px black);
-        
+          background-color: $color-white;
+          color: $color-black;
+          text-shadow: 1px 0 $color-black;
+          filter: drop-shadow(0 0 2px $color-black);
+          @include FontWeightAndSize;
+
           cursor: pointer;
         }
       }
