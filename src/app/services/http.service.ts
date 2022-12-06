@@ -1,12 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
 interface User {
   occupations: [],
   states: [] 
 }
-
 interface UserSubmitForm {
   name: '',
   email: '',
@@ -21,10 +19,9 @@ interface UserSubmitForm {
   providedIn: 'root'
 })
 export class HttpServices {
-
   private url = 'https://frontend-take-home.fetchrewards.com/form'
 
-  // HttpClient is one of key feature of Angular framework that support REST operation.
+  // HttpClient is one of key feature of Angular framework which support REST operation.
   constructor(private http: HttpClient) { }
 
   public getForm(): Observable<User> {
@@ -32,7 +29,6 @@ export class HttpServices {
   }
 
   public submitForm(data:UserSubmitForm): Observable<User> {
-    console.log(data)
     return this.http.post<User>(this.url, data);
   }
 }

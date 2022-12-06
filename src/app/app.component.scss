@@ -1,4 +1,6 @@
-// media query, mobile app responsive design if required
+// media query for mobile app responsive design if required
+// some companies prefer to prioritize mobile first, in this case developer would write css using media query.
+// while majority companies prioritize destop/laptop first then mobile second.
 
 // refactoring using @mixin
 @mixin FontWeightAndSize{
@@ -21,11 +23,16 @@ $ml-size: 5rem;
 $l-size: 10rem;
 $xl-size: 20rem;
 
+// SCSS allow nested selectors
+// why nested selectors? easy to read and maintain. 
+// some developer prefer to write seperate selectors while other prefer nested selectors. 
 .wrapper {
+  // center content in middle of the screen
   display: flex;
   align-items: center;
   justify-content: center;
 
+  // width and height size == screen size
   height: 100vh;
   width: 100vw;
 
@@ -33,11 +40,14 @@ $xl-size: 20rem;
   z-index: 0;
 
   .container{
+    // setup width and height size of content: 600px X 650px
     width: $xl-size +  $l-size + $ml-size + $sm-size+ .5rem; // 600px/16 = 37.5rem 
     height: $xl-size*2 + .265rem; // 650px/16 = 40.265rem
 
     background-color: $color-white;
     border-radius: $s-size; // 16px
+
+    // content overlap background color
     z-index: 1;
 
     .formContainer{
@@ -49,9 +59,11 @@ $xl-size: 20rem;
         text-shadow: 2px 0 $color-black;
         letter-spacing: 2px;
         margin-bottom: $sm-size; // 32px
+        color: $color-black;
       }
 
       form{
+        // display content in column using flex
         display: flex;
         flex-flow: column nowrap;
         

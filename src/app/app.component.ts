@@ -3,7 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { HttpServices } from './services/http.service';
 
-// interface is one of key feature of Typescript which keep track of which data type of any variables
+// interface is one of key feature of Typescript which keep track of any data type of variables.
 interface State {
   name: '',
   abbreviation: ''
@@ -25,8 +25,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   // inject http service into app.component as dependency 
   constructor(private httpService: HttpServices) {
-    // *it is not recommend to initilized within the constructor in Angular
-    // sometime it is neccessary to do so in this case
+    // *it is not recommend to initilized any variables or form within the constructor in Angular.
+    // sometime it is neccessary to do so in this case.
     this.profileForm = new FormGroup({
       name: new FormControl(''),
       email: new FormControl(''),
@@ -39,9 +39,9 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     // using httpService to send a get request to 'https://frontend-take-home.fetchrewards.com/form' as a Observable
     // subscribing to Observable for data
-    // * Observable data cannot be modify after subscription, can only read only.
-    // * any modification happend within the subscription.
-    // Think of Observable datas are as similar to a river flow from top down to bottom.
+    // * Observable data cannot be modify after subscription, and can only be read after subscription.
+    // * any modification can only be happend within subscription.
+    // Think of Observable as a river flow down from top to bottom and we can only subscribe or tap into this observable without modifying it. (this is my own analogy, and im not sure if this is the correct way to describe it)  
     this.subscription = this.httpService.getForm().subscribe(params => {
       this.occupations = params.occupations
 
