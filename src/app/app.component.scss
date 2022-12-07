@@ -58,7 +58,7 @@ $l-size: 5rem;
         display: flex;
         flex-flow: column nowrap;
         
-        .button{
+        button{
           width: 35%;
           height: 2.8rem; //44.8px
           background-color: $color-grey;
@@ -70,7 +70,7 @@ $l-size: 5rem;
           font-weight: bold;
         }
         
-        .button:hover {
+        button:hover {
           filter: drop-shadow(0 0 $xxs-size $color-grey);
           text-shadow: 1px 0 $color-grey;
           background-color: $color-white;
