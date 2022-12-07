@@ -4,7 +4,7 @@
 
 // main color
 $color-white: white;
-$color-black: black;
+// $color-black: black;
 $color-grey: #00000066;
 
 // rem is by definition units dictate an element's font size relative to the size of the root element
@@ -83,8 +83,4 @@ $l-size: 5rem;
       }
     }
   }
-}
-
-mat-option {
-  font-weight: bold;
 }
