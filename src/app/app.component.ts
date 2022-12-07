@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { State } from './models/state';
 import { HttpServices } from './services/http.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarComponent } from './snack-bar/snack-bar.component';
-
+import { IconsService } from './services/icons.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -21,13 +21,19 @@ export class AppComponent implements OnInit, OnDestroy {
   public stateName: string[] = [];
   public stateAbbreviation: string[] = [];
 
+  // initilized icon name for html
+  public iconTwitter = 'twitter';
+  public iconFacebook = 'facebook';
+  public iconLinkedin = 'linkedin'
+
   // Angular feature allow to manipulate html tag from the component
   @ViewChild('myForm') myForm!: NgForm;
 
   // inject http service into app.component as dependency 
   constructor(
     private httpService: HttpServices,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private icons: IconsService,
   ) {
     // *it is not recommend to initilizes any variables or form within the constructor in Angular.
     // sometime it is neccessary to do so in this case for FormGroup.
@@ -54,6 +60,9 @@ export class AppComponent implements OnInit, OnDestroy {
         this.stateAbbreviation.push(el.abbreviation)
       })
     })
+
+    // register icon within app.component when the app initiated. 
+    this.icons.getIcons()
   }
 
   // Using angular service to send user submited form to 'https://frontend-take-home.fetchrewards.com/form'

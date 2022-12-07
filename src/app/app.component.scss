@@ -4,8 +4,9 @@
 
 // main color
 $color-white: white;
-// $color-black: black;
 $color-grey: #00000066;
+$color-light-blue: rgb(72, 155, 233);
+$color-salmon: rgb(205, 86, 66);
 
 // rem is by definition units dictate an element's font size relative to the size of the root element
 // best pratice for responsive web design
@@ -23,7 +24,6 @@ $l-size: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-
   // width and height size == screen size
   height: 100vh;
   width: 100vw;
@@ -65,7 +65,6 @@ $l-size: 5rem;
           color: $color-white;
           border-radius: 5px;
           text-shadow: 1px 0 $color-white;
-          margin-top: $m-size; // 16px
           font-size: 1.1rem;
           font-weight: bold;
         }
@@ -79,6 +78,69 @@ $l-size: 5rem;
           font-weight: bold;
 
           cursor: pointer;
+        }
+
+        .icon-section{
+          display: flex;
+          justify-content: space-between;
+          margin-top: $s-size; // 16px
+
+          .icon-block{
+            display: flex;
+            flex-flow: row nowrap;
+
+            mat-icon{
+              color: $color-white;
+              stroke: $color-light-blue;
+              stroke-width: $s-size;
+            }
+            .mat-icon-twitter:hover{
+              color: $color-light-blue;
+            }
+            .mat-icon-facebook:hover{
+              color: $color-light-blue;
+            }
+            .mat-icon-linkedin {
+              stroke:  $color-salmon;;
+              stroke-width: $s-size;
+            }
+            .mat-icon-linkedin:hover{
+              color:  $color-salmon;;
+            }
+
+            a {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 2.8rem;
+              height: 2.8rem;
+              border-radius: 5px;
+              margin-left: 8px;
+            }
+
+            .icon-twitter {
+              background-color: $color-light-blue;
+            }
+            .icon-facebook {
+              background-color: $color-light-blue;
+            }
+            .icon-linkedin {
+              background-color: $color-salmon;
+            }
+
+            .icon-twitter:hover {
+              cursor: pointer;
+              background-color: $color-white;
+            }
+            .icon-facebook:hover {
+              cursor: pointer;
+              background-color: $color-white;
+            }
+            .icon-linkedin:hover {
+              cursor: pointer;
+              background-color: $color-white;   
+            }
+          }
         }
       }
     }

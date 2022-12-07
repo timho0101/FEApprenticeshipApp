@@ -34,7 +34,15 @@
             <mat-option *ngFor="let state of this.stateName; let i = index" [value]="state">{{state}}   ({{this.stateAbbreviation[i]}})</mat-option>
           </mat-select>
         </mat-form-field>
-        <button mat-button type="submit" [disabled]="!profileForm.valid" (click)="openSnackBar()">Submit</button>
+
+        <section class="icon-section">
+          <button mat-button type="submit" [disabled]="!profileForm.valid" (click)="openSnackBar()">Submit</button>
+          <div class="icon-block">
+            <a class="icon-twitter"><mat-icon class="mat-icon-twitter" svgIcon={{this.iconTwitter}}></mat-icon></a>
+            <a class="icon-facebook"><mat-icon class="mat-icon-facebook" svgIcon={{this.iconFacebook}}></mat-icon></a>
+            <a class="icon-linkedin"><mat-icon class="mat-icon-linkedin" svgIcon={{this.iconLinkedin}}></mat-icon></a>
+          </div>
+        </section>
       </form>
     </div>
   </div>
