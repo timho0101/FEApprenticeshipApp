@@ -34,7 +34,7 @@
             <mat-option *ngFor="let state of this.stateName; let i = index" [value]="state">{{state}}   ({{this.stateAbbreviation[i]}})</mat-option>
           </mat-select>
         </mat-form-field>
-        <button class="button" mat-button type="submit" [disabled]="!profileForm.valid">Submit</button>
+        <button class="button" mat-button type="submit" [disabled]="!profileForm.valid" (click)="openSnackBar()">Submit</button>
       </form>
     </div>
   </div>

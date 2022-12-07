@@ -3,6 +3,8 @@ import {FormControl, FormGroup} from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { State } from './models/state';
 import { HttpServices } from './services/http.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackBarComponent } from './snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +22,10 @@ export class AppComponent implements OnInit, OnDestroy {
   public stateAbbreviation: string[] = [];
 
   // inject http service into app.component as dependency 
-  constructor(private httpService: HttpServices) {
+  constructor(
+    private httpService: HttpServices,
+    private snackBar: MatSnackBar
+  ) {
     // *it is not recommend to initilizes any variables or form within the constructor in Angular.
     // sometime it is neccessary to do so in this case for FormGroup.
     this.profileForm = new FormGroup({
@@ -60,4 +65,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe()
   }
 
+  // Pop-up bar on top of the application after the user submitted their information
+  // snack-bar duration last for 2s then disappear  
+  public openSnackBar() {
+    this.snackBar.openFromComponent(SnackBarComponent, {
+      duration: 2000,
+      verticalPosition: 'top'
+    });
+  }
 }
