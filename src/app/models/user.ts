@@ -1,4 +1,6 @@
+import { State } from "./state";
+
 export interface User{
-  occupations: [],
-  states: [] 
+  occupations: string[],
+  states: State[]
 }

@@ -4,11 +4,6 @@ import { Subscription } from 'rxjs';
 import { State } from './models/state';
 import { HttpServices } from './services/http.service';
 
-// interface is one of key feature of Typescript which keep track of any data type of variables.
-// interface State {
-//   name: '',
-//   abbreviation: ''
-// }
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,12 +12,12 @@ import { HttpServices } from './services/http.service';
 export class AppComponent implements OnInit, OnDestroy {
   // its good pratice to declare global variables as public and local variables as private.
   // variables should always have a type of their own instead of any types. This is one of key feature of Typescript.
-  public hide: boolean = true;
   public profileForm: FormGroup;
+  public subscription!: Subscription 
+  public hide: boolean = true;
   public occupations: string[] = [];
   public stateName: string[] = [];
   public stateAbbreviation: string[] = [];
-  public subscription!: Subscription 
 
   // inject http service into app.component as dependency 
   constructor(private httpService: HttpServices) {
@@ -56,12 +51,12 @@ export class AppComponent implements OnInit, OnDestroy {
   // this method using angular service to send user submited form to 'https://frontend-take-home.fetchrewards.com/form'
   // after submited form sended to 'https://frontend-take-home.fetchrewards.com/form', this subscription will be destroy to prevent memory leak or any other problem happen later on.
   // this is another best pratice when using subscription.
-  public onSubmit() {
+  public onSubmit(): void {
     this.subscription  = this.httpService.submitForm(this.profileForm.value).subscribe()
   }
 
   // this is an Angular method allow subscription to unsubscribe from Observable.
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe()
   }
 

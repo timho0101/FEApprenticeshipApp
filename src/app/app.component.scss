@@ -2,26 +2,18 @@
 // some companies prefer to prioritize mobile first, in this case developer would write css using media query.
 // while majority companies prioritize destop/laptop first then mobile second.
 
-// refactoring using @mixin
-@mixin FontWeightAndSize{
-  font-size: 1.1rem;
-  font-weight: bold;
-}
-
 // main color
 $color-white: white;
 $color-black: black;
-$color-light-black: rgba(0, 0, 0, 0.4);
+$color-grey: #00000066;
 
 // rem is by definition units dictate an element's font size relative to the size of the root element
 // best pratice for responsive web design
 // 1rem = 16px
+$xxs-size: 2px;
 $s-size: 1rem;
-$sm-size: 2rem;
-$m-size: 3rem;
-$ml-size: 5rem;
-$l-size: 10rem;
-$xl-size: 20rem;
+$m-size: 2rem;
+$l-size: 5rem;
 
 // SCSS allow nested selectors
 // why nested selectors? easy to read and maintain. 
@@ -36,30 +28,29 @@ $xl-size: 20rem;
   height: 100vh;
   width: 100vw;
 
-  background-color: $color-light-black;
+  background-color: $color-grey;
   z-index: 0;
 
   .container{
     // setup width and height size of content: 600px X 650px
-    width: $xl-size +  $l-size + $ml-size + $sm-size+ .5rem; // 600px/16 = 37.5rem 
-    height: $xl-size*2 + .265rem; // 650px/16 = 40.265rem
-
-    background-color: $color-white;
+    width: 37.5rem; // 600px/16 = 37.5rem 
+    height: 40.265rem; // 650px/16 = 40.265rem
     border-radius: $s-size; // 16px
+    background-color: $color-white;
 
     // content overlap background color
     z-index: 1;
 
     .formContainer{
-      padding: $ml-size; // 80px
+      padding: $l-size; // 80px
       
       .title{
-        font-size: $sm-size; // 32px
+        font-size: $m-size; // 32px
         font-weight: bold;
-        text-shadow: 2px 0 $color-black;
-        letter-spacing: 2px;
-        margin-bottom: $sm-size; // 32px
-        color: $color-black;
+        letter-spacing: $xxs-size;
+        margin-bottom: $m-size; // 32px
+        text-shadow: 1px 0 $color-grey;
+        color: $color-grey;
       }
 
       form{
@@ -69,22 +60,23 @@ $xl-size: 20rem;
         
         .button{
           width: 35%;
-          height: $sm-size + .8rem; //44.8px
-          background-color: $color-black;
+          height: 2.8rem; //44.8px
+          background-color: $color-grey;
           color: $color-white;
-          border: 2px solid $color-black;
           border-radius: 5px;
           text-shadow: 1px 0 $color-white;
-          margin-top: $s-size; // 16px
-          @include FontWeightAndSize
+          margin-top: $m-size; // 16px
+          font-size: 1.1rem;
+          font-weight: bold;
         }
         
         .button:hover {
+          filter: drop-shadow(0 0 $xxs-size $color-grey);
+          text-shadow: 1px 0 $color-grey;
           background-color: $color-white;
-          color: $color-black;
-          text-shadow: 1px 0 $color-black;
-          filter: drop-shadow(0 0 2px $color-black);
-          @include FontWeightAndSize;
+          color: $color-grey;
+          font-size: 1.1rem;
+          font-weight: bold;
 
           cursor: pointer;
         }

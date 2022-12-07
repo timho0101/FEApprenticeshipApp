@@ -19,7 +19,7 @@ export class HttpServices {
     return this.http.get<User>(this.url);
   }
 
-  public submitForm(data:UserSubmitForm): Observable<User> {
-    return this.http.post<User>(this.url, data);
+  public submitForm(data:UserSubmitForm): Observable<UserSubmitForm> {
+    return this.http.post<UserSubmitForm>(this.url, data);
   }
 }
