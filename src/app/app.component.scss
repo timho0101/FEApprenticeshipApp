@@ -94,18 +94,10 @@ $l-size: 5rem;
               stroke: $color-light-blue;
               stroke-width: $s-size;
             }
-            .mat-icon-twitter:hover{
-              color: $color-light-blue;
-            }
-            .mat-icon-facebook:hover{
-              color: $color-light-blue;
-            }
+
             .mat-icon-linkedin {
               stroke:  $color-salmon;;
               stroke-width: $s-size;
-            }
-            .mat-icon-linkedin:hover{
-              color:  $color-salmon;;
             }
 
             a {
@@ -131,14 +123,25 @@ $l-size: 5rem;
             .icon-twitter:hover {
               cursor: pointer;
               background-color: $color-white;
+              .mat-icon-twitter{
+                color:  $color-light-blue;
+              }
             }
+
             .icon-facebook:hover {
               cursor: pointer;
               background-color: $color-white;
+              .mat-icon-facebook{
+                color:  $color-light-blue;
+              }
             }
+
             .icon-linkedin:hover {
               cursor: pointer;
-              background-color: $color-white;   
+              background-color: $color-white;
+              .mat-icon-linkedin{
+                color:  $color-salmon;;
+              }
             }
           }
         }
