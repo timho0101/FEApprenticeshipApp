@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-snack-bar',
-  templateUrl: './snack-bar.component.html',
+  template: '<span class="snack">Submit success!!!</span>',
   styles: [`
     .snack {
       color: hotpink;
