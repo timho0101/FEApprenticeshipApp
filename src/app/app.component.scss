@@ -125,6 +125,7 @@ $l-size: 5rem;
               background-color: $color-white;
               .mat-icon-twitter{
                 color:  $color-light-blue;
+                animation: enlarge 1s ease-in alternate infinite;
               }
             }
 
@@ -133,6 +134,7 @@ $l-size: 5rem;
               background-color: $color-white;
               .mat-icon-facebook{
                 color:  $color-light-blue;
+                animation: enlarge 1s ease-in alternate infinite;
               }
             }
 
@@ -140,12 +142,23 @@ $l-size: 5rem;
               cursor: pointer;
               background-color: $color-white;
               .mat-icon-linkedin{
-                color:  $color-salmon;;
+                color:  $color-salmon;
+                animation: enlarge 1s ease-in-out alternate infinite;
               }
             }
           }
         }
       }
     }
+  }
+}
+
+// icons animation
+@keyframes enlarge {
+  0%{
+    transform: scale(.7);
+  }
+  100%{
+    transform: scale(1.3);
   }
 }
